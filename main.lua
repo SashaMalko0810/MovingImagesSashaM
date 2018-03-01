@@ -1,7 +1,7 @@
 -- Title: MovingImages
 -- Name: Sasha Malko
 -- Course: ICS2O/3C
--- This program displays a beetleship moving acrpss the screen
+-- This program displays a beetleship moving across the screen
 --as well as another object moving in a different direction.
 
 print ("***Testing beetleship!")
@@ -26,6 +26,7 @@ beetleship.alpha = 0
 beetleship.x = 0
 beetleship.y = display.contentHeight/2
 
+--set the size of beetleship
 beetleship:scale(0.8,0.8)
 
 --Function: MoveShip
@@ -45,17 +46,19 @@ Runtime:addEventListener("enterFrame", MoveShip)
 --character image with width and height
 local beetleship2 = display.newImageRect("Images/beetleship.png",200,200)
  
+ --rotate image on screen
  transition.to(beetleship2, {x=900, rotation = beetleship2.rotation-500,time=2000,} )
 
---have image in different direction
+--have image facing a different direction
 beetleship2:scale (-1, 1)
 
+--set the size of the second beetleship
 beetleship2:scale (0.5,0.5)
 
 --set the image to be transparent
 beetleship2.alpha = 100
 
---set the intial x and y position of beetleship
+--set the intial x and y position of the second beetleship
 beetleship2.x = display.contentWidth/2
 beetleship2.y = 0
 
@@ -73,4 +76,3 @@ end
 
 --MoveShip will be called over and over again
 Runtime:addEventListener("enterFrame", MoveShip)
-
