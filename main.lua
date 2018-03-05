@@ -27,7 +27,7 @@ beetleship.x = 0
 beetleship.y = display.contentHeight/2
 
 --set the size of beetleship
-beetleship:scale(0.8,0.8)
+beetleship:scale(1,1)
 
 --Function: MoveShip
 --Input: this function accepts an event listener
@@ -38,6 +38,8 @@ local function MoveShip(event)
 	beetleship.x = beetleship.x + scrollSpeed
 	--change the transparency of the ship every time it moves so that it fades out 
 	beetleship.alpha = beetleship.alpha + 0.01
+	--make the ship shrink every time it moves
+    beetleship:scale (1 - 0.002, 1 - 0.002)
 end
 
 --MoveShip will be called over and over again
@@ -50,10 +52,10 @@ local beetleship2 = display.newImageRect("Images/beetleship.png",200,200)
  transition.to(beetleship2, {x=900, rotation = beetleship2.rotation-500,time=2000,} )
 
 --have image facing a different direction
-beetleship2:scale (-1, 1)
+beetleship2:scale (-1, 1) 
 
---set the size of the second beetleship
-beetleship2:scale (0.5,0.5)
+--set the size of the beetleship
+beetleship2:scale (1,1)
 
 --set the image to be transparent
 beetleship2.alpha = 100
@@ -71,6 +73,8 @@ local function MoveShip(event)
 	beetleship2.y = beetleship2.y + goSpeed
 	--change the transparency of the ship every time it moves so that it fades out 
 	beetleship2.alpha = beetleship2.alpha - 0.0001
+	--make the ship grow ever time it moves
+	beetleship2:scale (1 + 0.01,1 + 0.01)
 	
 end
 
