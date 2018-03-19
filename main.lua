@@ -6,6 +6,13 @@
 
 print ("***Testing beetleship!")
 
+--create local variables for sound
+local clearDay = audio.loadSound("Sounds/clearday.mp3")
+local clearDayChannel
+
+--play the background music
+local clearDayChannel = audio.play(clearDay)
+
 --hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
